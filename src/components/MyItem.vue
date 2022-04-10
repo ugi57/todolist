@@ -34,7 +34,7 @@ export default {
         }
       },
       handleEdit(todo){
-        if(todo.hasOwnProperty('isEdit')){
+        if( Object.prototype.hasOwnProperty.call(todo, 'isEdit')){
           todo.isEdit=true
         }else{
           this.$set(todo,'isEdit',true)
