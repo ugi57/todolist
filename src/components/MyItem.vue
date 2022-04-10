@@ -8,6 +8,7 @@
           v-show="todo.isEdit" 
           :value="todo.title" 
           @blur="handleBlur(todo,$event)"
+          ref="inputTitle"
         >
     </label>
     <button class="btn btn-danger" @click="handleDelete(todo.id)">删除</button>
@@ -38,6 +39,9 @@ export default {
         }else{
           this.$set(todo,'isEdit',true)
         }
+        this.$nextTick(function(){
+          this.$refs.inputTitle.focus()
+        })
       },
       handleBlur(todo,e){
         todo.isEdit=false
